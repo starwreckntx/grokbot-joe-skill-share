@@ -158,8 +158,8 @@ and compares both values to the packet header or the provenance record.
 
 - **Match:** the transfer is verified. Say so, and quote the hash.
 - **Mismatch:** the transfer has failed. Don't install a "close enough" copy.
-  Diff against a fresh extraction (`diff <(xxd a) <(xxd b)` shows invisible
-  differences) and re-send.
+  Compare against a fresh extraction (`cmp a b` reports the first differing
+  byte, which catches invisible differences) and re-send.
 
 For repositories, keep a `MANIFEST.sha256` (standard `sha256sum` format) and
 a script that re-checks every entry, so anyone can verify everything at
